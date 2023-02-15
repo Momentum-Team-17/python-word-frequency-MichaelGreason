@@ -32,12 +32,34 @@ def open_file(file):
     # .split() turns string into lists
     cleaned_list = remove_stop_words(word_list)
     print(cleaned_list)
+    return cleaned_list
+
+
+def sort_dictionary(dictionary):
+    sorted_count_by_frequency = sorted(
+        dictionary.items(), key=lambda x: x[1], reverse=True
+    )
+    return sorted_count_by_frequency
 
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
     # use 'open' to read a text file
-    open_file(file)
+    words_to_count = open_file(file)
+    word_count = {
+        # 'new': words_to_count.count('new')
+    }
+    for word in words_to_count:
+        if word in word_count.keys():
+            word_count[word] += 1
+        else:
+            word_count[word] = 1
+    sorted_dictionary = sort_dictionary(word_count)
+    print(sorted_dictionary)
+    return sorted_dictionary
+
+    # # loop through the list of words, and updated the
+    # dictionary to indicate how many of each we have
 
 
 if __name__ == "__main__":
