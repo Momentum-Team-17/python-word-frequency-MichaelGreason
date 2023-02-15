@@ -19,7 +19,7 @@ def open_file(file):
     with open(file) as opened_file:
         # file remains open for the indented lines under here
         read_file = opened_file.read()
-    stripped_file = remove_punctuation(read_file)
+    stripped_file = remove_punctuation(read_file).lower()
     word_list = stripped_file.split()
     # .split() turns string into lists
     print(word_list)
