@@ -14,6 +14,14 @@ def remove_punctuation(words):
     # case that is PUNCTUATIONS
 
 
+def remove_stop_words(word_list):
+    cleaned_list = []
+    for word in word_list:
+        if word not in STOP_WORDS:
+            cleaned_list.append(word)
+    return cleaned_list
+
+
 def open_file(file):
     '''Usesd 'open' to read a text file'''
     with open(file) as opened_file:
@@ -22,7 +30,8 @@ def open_file(file):
     stripped_file = remove_punctuation(read_file).lower()
     word_list = stripped_file.split()
     # .split() turns string into lists
-    print(word_list)
+    cleaned_list = remove_stop_words(word_list)
+    print(cleaned_list)
 
 
 def print_word_freq(file):
