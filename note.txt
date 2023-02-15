@@ -1,0 +1,6 @@
+1. use 'open' to read a text file
+2. remove punctuation
+3. normalize all words to lowercase
+4. remove "stop words" -- words used so frequently they are ignored
+5. go through the file word by word and keep a count of how often each word is used
+6. display a count in the console of words in descending frequency
