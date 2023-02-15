@@ -1,3 +1,5 @@
+import string
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
@@ -5,12 +7,21 @@ STOP_WORDS = [
 ]
 
 
+def remove_punctuation(words):
+    stripped_file = words.translate(str.maketrans('', '', string.punctuation))
+    return stripped_file
+    # .translate(str.maketrans('','',x')) removes certain characters, in this
+    # case that is PUNCTUATIONS
+
+
 def open_file(file):
     '''Usesd 'open' to read a text file'''
     with open(file) as opened_file:
         # file remains open for the indented lines under here
         read_file = opened_file.read()
-    word_list = read_file.split()
+    stripped_file = remove_punctuation(read_file)
+    word_list = stripped_file.split()
+    # .split() turns string into lists
     print(word_list)
 
 
