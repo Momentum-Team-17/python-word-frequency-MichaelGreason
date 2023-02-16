@@ -42,6 +42,16 @@ def sort_dictionary(dictionary):
     return sorted_count_by_frequency
 
 
+def format_sd(new):
+    format = []
+    for index in new:
+        astrisks = '*' * index[1]
+        formatted = [str(index[0]) + ' | ' + str(index[1]) + ' ' + astrisks]
+        format.append(formatted)
+        # print(format)
+    return format
+
+
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
     # use 'open' to read a text file
@@ -55,14 +65,30 @@ def print_word_freq(file):
         else:
             word_count[word] = 1
     sorted_dictionary = sort_dictionary(word_count)
-    for item in sorted_dictionary:
-        thing, count = item
-        print(thing, count)
     # print(sorted_dictionary)
-    return sorted_dictionary
+    final_sd = format_sd(sorted_dictionary)
+    new_tup = tuple(tuple(unit) for unit in final_sd)
+    print(str(new_tup))
+    # print(final_sd)
+    # return final_sd
+    # for a, b, c, d, in str(new_tup):
+    #     print(a, b, c, d)
+
+    # new_string = [item for t in sorted_dictionary for item in t]
+    # print(new_string)
+    # new_sd = []
+    # for item in sorted_dictionary:
+    #     for x in item:
+    #         new_sd.append(x)
+    # print(new_sd)
 
     # # loop through the list of words, and updated the
     # dictionary to indicate how many of each we have
+
+    # for thing, count in sorted_dictionary:
+    #     print(thing, count)
+    # print(sorted_dictionary)
+    # return sorted_dictionary
 
 
 if __name__ == "__main__":
