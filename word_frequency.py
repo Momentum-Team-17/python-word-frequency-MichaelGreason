@@ -31,7 +31,7 @@ def open_file(file):
     word_list = stripped_file.split()
     # .split() turns string into lists
     cleaned_list = remove_stop_words(word_list)
-    print(cleaned_list)
+    # print(cleaned_list)
     return cleaned_list
 
 
@@ -55,7 +55,10 @@ def print_word_freq(file):
         else:
             word_count[word] = 1
     sorted_dictionary = sort_dictionary(word_count)
-    print(sorted_dictionary)
+    for item in sorted_dictionary:
+        thing, count = item
+        print(thing, count)
+    # print(sorted_dictionary)
     return sorted_dictionary
 
     # # loop through the list of words, and updated the
