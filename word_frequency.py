@@ -42,53 +42,29 @@ def sort_dictionary(dictionary):
     return sorted_count_by_frequency
 
 
-# def format_sd(new):
-#     format = []
-#     for index in new:
-#         astrisks = '*' * index[1]
-#         formatted = [str(index[0]) + ' | ' + str(index[1]) + ' ' + astrisks]
-#         format.append(formatted)
-#         # print(format)
-#     return format
-
-
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
     # use 'open' to read a text file
     words_to_count = open_file(file)
-    word_count = {
-        # 'new': words_to_count.count('new')
-    }
+    word_count = {}
+    # 'new': words_to_count.count('new')
     for word in words_to_count:
         if word in word_count.keys():
             word_count[word] += 1
         else:
             word_count[word] = 1
     sorted_list = sort_dictionary(word_count)
-    # print(sorted_dictionary)
-    # final_sd = format_sd(sorted_dictionary)
-    # new_tup = tuple(tuple(unit) for unit in final_sd)
-    # print(new_tup)
-    # print(len(new_tup))
-    # return new_tup
-    # print(final_sd)
-    # return final_sd
-    # for a, b, c, d, in str(new_tup):
-    #     print(a, b, c, d)
-    # new_string = [item for t in sorted_dictionary for item in t]
-    # print(new_string)
-    # new_sd = []
-    # for item in sorted_dictionary:
-    #     for x in item:
-    #         new_sd.append(x)
-    # print(new_sd)
+    longest_word_len = len(max(words_to_count, key=len))
 
     # # loop through the list of words, and updated the
     # dictionary to indicate how many of each we have
 
-    for thing, count in sorted_list:
+    for word, count in sorted_list:
         asterisks = '*' * count
-        print(f'{thing} | {count} {asterisks}')
+        space_count = longest_word_len - len(word)
+        space = ' ' * space_count
+        print(f'{space} {word} | {count} {asterisks}')
+
     # print(sorted_dictionary)
     # return sorted_dictionary
 
